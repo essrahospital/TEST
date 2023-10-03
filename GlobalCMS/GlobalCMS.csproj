@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB21BAE6-7FC6-4566-B47F-F3F7F51A8979}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GlobalCMS</RootNamespace>
+    <AssemblyName>GlobalCMS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CodeScales.Http, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodeScales.Http.1.0.0\lib\net451\CodeScales.Http.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Downloader, Version=3.0.4.0, Culture=neutral, PublicKeyToken=844973e732f6cdf4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Downloader.3.0.4\lib\net452\Downloader.dll</HintPath>
+    </Reference>
+    <Reference Include="EDIDParser, Version=1.2.5.3, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDIDParser.1.2.5.4\lib\net45\EDIDParser.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Base, Version=20.1.45.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.20.1.45\lib\EO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebBrowser, Version=20.1.45.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.20.1.45\lib\EO.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebBrowser.WinForm, Version=20.1.45.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.WinForm.20.1.45\lib\EO.WebBrowser.WinForm.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebEngine, Version=20.1.45.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.20.1.45\lib\EO.WebEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Microsoft.VisualStudio.OLE.Interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Microsoft.VisualStudio.Shell.Interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Microsoft.VisualStudio.TextManager.Interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>libs\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="neotrix_hdmi_tool">
+      <HintPath>libs\neotrix_hdmi_tool.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsDisplayAPI, Version=1.3.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsDisplayAPI.1.3.0.13\lib\net45\WindowsDisplayAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\BiosInfo.cs" />
+    <Compile Include="Class\AudioManager.cs" />
+    <Compile Include="Class\DeviceMangement.cs" />
+    <Compile Include="Class\Downloader.cs" />
+    <Compile Include="Class\NativeMethods.cs" />
+    <Compile Include="Class\Omron\ColorMath.cs" />
+    <Compile Include="Class\Omron\ColorWheel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\Omron\CSV.cs" />
+    <Compile Include="Class\Omron\Data.cs" />
+    <Compile Include="Class\Omron\SensorSettings.cs" />
+    <Compile Include="Class\Omron\HslColor.cs" />
+    <Compile Include="Class\Omron\Sensor.cs" />
+    <Compile Include="Class\Omron\SensorData.cs" />
+    <Compile Include="Class\Omron\SensorFlag.cs" />
+    <Compile Include="Class\Omron\SensorLogging.cs" />
+    <Compile Include="Class\Omron\USB.cs" />
+    <Compile Include="Class\Printer.cs" />
+    <Compile Include="Class\RestartExplorer.cs" />
+    <Compile Include="Class\Taskbar.cs" />
+    <Compile Include="Class\Themes.cs" />
+    <Compile Include="Class\WebSocketServer.cs" />
+    <Compile Include="Forms\ComDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ComDebug.Designer.cs">
+      <DependentUpon>ComDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeviceLocked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeviceLocked.Designer.cs">
+      <DependentUpon>DeviceLocked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeviceManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeviceManager.Designer.cs">
+      <DependentUpon>DeviceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadManager.Designer.cs">
+      <DependentUpon>DownloadManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LiveSupport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LiveSupport.Designer.cs">
+      <DependentUpon>LiveSupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LogViewerBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogViewerBrowser.Designer.cs">
+      <DependentUpon>LogViewerBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LogViewerSignage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogViewerSignage.Designer.cs">
+      <DependentUpon>LogViewerSignage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LogViewerMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogViewerMonitor.Designer.cs">
+      <DependentUpon>LogViewerMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AirServerConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AirServerConfig.Designer.cs">
+      <DependentUpon>AirServerConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multiscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Multiscreen.Designer.cs">
+      <DependentUpon>Multiscreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Nexmosphere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Nexmosphere.Designer.cs">
+      <DependentUpon>Nexmosphere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OmronSensor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OmronSensor.Designer.cs">
+      <DependentUpon>OmronSensor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PowerTimerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PowerTimerWindow.Designer.cs">
+      <DependentUpon>PowerTimerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rs232.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rs232.Designer.cs">
+      <DependentUpon>Rs232.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Updating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Updating.Designer.cs">
+      <DependentUpon>Updating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScreenLock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScreenLock.Designer.cs">
+      <DependentUpon>ScreenLock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SignageBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SignageBrowser.Designer.cs">
+      <DependentUpon>SignageBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ScreenScaling.cs" />
+    <Compile Include="Class\ScreenResolution.cs" />
+    <Compile Include="Class\ScreenRotation.cs" />
+    <Compile Include="Forms\GDPR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GDPR.Designer.cs">
+      <DependentUpon>GDPR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\WebServer.cs" />
+    <Compile Include="Class\EDIDUtil.cs" />
+    <Compile Include="Forms\Decommissioned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decommissioned.Designer.cs">
+      <DependentUpon>Decommissioned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EngineerTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EngineerTools.Designer.cs">
+      <DependentUpon>EngineerTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SystemDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SystemDebug.Designer.cs">
+      <DependentUpon>SystemDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Json.cs" />
+    <Compile Include="Class\ScreenInformation.cs" />
+    <Compile Include="Class\Temp.cs" />
+    <Compile Include="Class\ScreenControl.cs" />
+    <Compile Include="Class\ScreenCapture.cs" />
+    <Compile Include="Class\GCMSTriggers.cs" />
+    <Compile Include="Class\WindowHelper.cs" />
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Commission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Commission.Designer.cs">
+      <DependentUpon>Commission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\IniFile.cs" />
+    <Compile Include="Class\ProcessUtils.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ComDebug.resx">
+      <DependentUpon>ComDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeviceLocked.resx">
+      <DependentUpon>DeviceLocked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeviceManager.resx">
+      <DependentUpon>DeviceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LiveSupport.resx">
+      <DependentUpon>LiveSupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Commission.resx">
+      <DependentUpon>Commission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Decommissioned.resx">
+      <DependentUpon>Decommissioned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EngineerTools.resx">
+      <DependentUpon>EngineerTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogViewerBrowser.resx">
+      <DependentUpon>LogViewerBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogViewerSignage.resx">
+      <DependentUpon>LogViewerSignage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogViewerMonitor.resx">
+      <DependentUpon>LogViewerMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AirServerConfig.resx">
+      <DependentUpon>AirServerConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Multiscreen.resx">
+      <DependentUpon>Multiscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Nexmosphere.resx">
+      <DependentUpon>Nexmosphere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OmronSensor.resx">
+      <DependentUpon>OmronSensor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PowerTimerWindow.resx">
+      <DependentUpon>PowerTimerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rs232.resx">
+      <DependentUpon>Rs232.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SystemDebug.resx">
+      <DependentUpon>SystemDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Updating.resx">
+      <DependentUpon>Updating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GDPR.resx">
+      <DependentUpon>GDPR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScreenLock.resx">
+      <DependentUpon>ScreenLock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SignageBrowser.resx">
+      <DependentUpon>SignageBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Resources\Drivers\AVA\hvc-p2_win32.cat" />
+    <None Include="Resources\Drivers\AVA\hvc-p2_win64.cat" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skins\Default\skin_default_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\Microsoft.Win32.Registry.dll" />
+    <None Include="Resources\Skins\55763\skin_55763_updating.jpg" />
+    <None Include="Resources\Skins\55763\skin_55763_splash.jpg" />
+    <None Include="Resources\Skins\55763\skin_55763_logo.png" />
+    <None Include="Resources\Skins\55763\skin_55763_icon.ico" />
+    <None Include="Resources\Skins\55763\skin_55763_gdpr.jpg" />
+    <None Include="Resources\Skins\34754\skin_34754_updating.jpg" />
+    <None Include="Resources\Skins\34754\skin_34754_splash.jpg" />
+    <None Include="Resources\Skins\34754\skin_34754_logo.png" />
+    <None Include="Resources\Skins\34754\skin_34754_icon.ico" />
+    <None Include="Resources\Skins\34754\skin_34754_gdpr.jpg" />
+    <None Include="Resources\Skins\76541\skin_76541_icon.ico" />
+    <None Include="Resources\Skins\76541\skin_76541_updating.jpg" />
+    <None Include="Resources\Skins\76541\skin_76541_splash.jpg" />
+    <Content Include="Resources\Default.xml" />
+    <Content Include="Resources\Drivers\AVA\HVC-P2_Win32.inf" />
+    <Content Include="Resources\Drivers\AVA\HVC-P2_Win64.inf" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\Skins\Default\skin_default_updating.jpg" />
+    <None Include="Resources\BeepSound.bmp" />
+    <None Include="Resources\BEEP.wav" />
+    <None Include="Resources\Icons\32\ICO_ANTENNA32.png" />
+    <None Include="Resources\Icons\32\ICO_SERIAL32.png" />
+    <None Include="Resources\Icons\32\ICO_TOUCHSCREEN32.png" />
+    <None Include="Resources\Icons\32\ICO_USB_MODEM32.png" />
+    <None Include="Resources\Icons\32\ICO_USB32.png" />
+    <None Include="Resources\Icons\32\ICO_WIFI32.png" />
+    <None Include="Resources\Icons\64\ICO_ANTENNA64.png" />
+    <None Include="Resources\Icons\64\ICO_SERIAL64.png" />
+    <None Include="Resources\Icons\64\ICO_TOUCHSCREEN64.png" />
+    <None Include="Resources\Icons\64\ICO_USB_MODEM64.png" />
+    <None Include="Resources\Icons\64\ICO_USB64.png" />
+    <None Include="Resources\Icons\64\ICO_WIFI64.png" />
+    <None Include="Resources\Icons\32\ICO_TEMP32.png" />
+    <None Include="Resources\Icons\64\ICO_TEMP64.png" />
+    <Content Include="Resources\OpenKeyboard.exe" />
+    <Content Include="Resources\Skins\12345\skin_12345_gdpr.jpg" />
+    <Content Include="Resources\Skins\12345\skin_12345_icon.ico" />
+    <Content Include="Resources\Skins\12345\skin_12345_logo.png" />
+    <Content Include="Resources\Skins\12345\skin_12345_splash.jpg" />
+    <None Include="Resources\Skins\12345\skin_12345_updating.jpg" />
+    <Content Include="Resources\Skins\76541\skin_76541_gdpr.jpg" />
+    <Content Include="Resources\Skins\76541\skin_76541_logo.png" />
+    <Content Include="Resources\Skins\Default\skin_default_gdpr.jpg" />
+    <Content Include="Resources\Skins\Default\skin_default_icon.ico" />
+    <Content Include="Resources\Skins\Default\skin_default_splash.jpg" />
+    <EmbeddedResource Include="libs\neotrix_hdmi_tool.dll" />
+    <EmbeddedResource Include="libs\Microsoft.VisualStudio.OLE.Interop.dll" />
+    <EmbeddedResource Include="libs\Microsoft.VisualStudio.Shell.Interop.dll" />
+    <EmbeddedResource Include="libs\Microsoft.VisualStudio.TextManager.Interop.dll" />
+    <EmbeddedResource Include="libs\CodeScales.Http.dll" />
+    <EmbeddedResource Include="libs\EDIDParser.dll" />
+    <EmbeddedResource Include="libs\Microsoft.WindowsAPICodePack.dll" />
+    <EmbeddedResource Include="libs\Newtonsoft.Json.dll" />
+    <EmbeddedResource Include="libs\WindowsDisplayAPI.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="GlobalCMS.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WUApiLib">
+      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

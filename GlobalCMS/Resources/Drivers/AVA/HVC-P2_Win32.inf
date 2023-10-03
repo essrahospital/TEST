@@ -1,0 +1,101 @@
+; Setup File for Windows XP/2000
+; Copyright 2004-2005
+;
+; $Id: usbfCdcAcm.inf,v 1.5 2012/08/17 08:23:06 h-kita Exp $
+;
+; Ver:	1.01
+; Last Modify:	2005/Sep/09
+; Ver:	1.00
+; Last Modify:	2004/Jul/09
+
+[Version]
+LayoutFile=layout.inf
+Signature="$CHICAGO$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%Company%
+DriverVer=11/22/2016,3.0.0.1 
+CatalogFile=HVC-P2_Win32.cat
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[Manufacturer]
+%Company%=Models,NTamd64 
+
+[ClassInstall32.NT]
+AddReg=PortsClass.NT.AddReg
+
+[PortsClass.NT.AddReg]
+HKR,,,,%PortsClassName%
+HKR,,Icon,,"-23"
+HKR,,Installer32,,"MsPorts.Dll,PortsClassInstaller"
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+;;; ベンダIDとプロダクトID
+[Models,NTamd64]
+%USB.PnP%=ComPort, USB\VID_0590&PID_00CA
+
+[Models]
+%USB.PnP%=ComPort, USB\VID_0590&PID_00CA
+
+[ComPort.NT]
+CopyFiles=ComPort.Copy
+AddReg=ComPort.AddReg, ComPort.NT.AddReg
+
+[ComPort.NT.HW]
+AddReg=ComPort.NT.HW.AddReg
+
+[ComPort.NT.Services]
+AddService = usbser, 0x00000002, Inst_USB_CDC_Abstruct,
+Inst_Event_Log
+AddService = Serenum,,Inst_Serenum
+
+[ComPort.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+
+[Inst_USB_CDC_Abstruct]
+DisplayName    = %Serial.SVCDESC%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\usbser.sys
+LoadOrderGroup = Extended base
+
+[Inst_Serenum]
+DisplayName    = %Serenum.SVCDESC%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+[Inst_Event_Log]
+AddReg = Event_Log_AddReg
+
+[Event_Log_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%
+%SystemRoot%%\System32\drivers\usbser.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[ComPort.Copy]
+usbser.sys,,,0x20
+
+[ComPort.AddReg]
+HKR,,PortSubClass,1,01
+
+[ComPort.NT.Copy]
+CopyFiles=ComPort.Copy
+
+[ComPort.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[Strings]
+Company="OMRON"
+DiskName_Desc="Installation Disk"
+PortsClassName = "Ports (COM & LPT)"
+Serenum.SVCDESC = "Serenum Filter Driver"
+Serial.SVCDESC = "USB CDC ACM Driver"
+USB.PnP="OMRON Serial Converter"
